@@ -12,10 +12,6 @@ This is currently configured to send a request to a locally hosted LLM using oob
 
 The API is expected to process the user input and return a response, which will be displayed in the input field. See below for examples of how to provide input from the iOS Keyboard.
 
-**_Note: You will need to replace “API_URL” and “API_PORT” with your API URL and PORT details to the KeyboardViewController.swift file on line 130._**
-
-_Before building, be sure to add your Apple Developer details so you can sign the app properly._
-
 This was originally built to serve the purpose of providing summarizations, quick replies, or in-text/chat LLM responses that can be generated anywhere on iOS where the native keyboard is displayed. It can be used to generate replies to messages, emails, to write a tweet, or transform text in just about any way you see fit.
 
 ## ⭐ Features ⭐
@@ -39,7 +35,12 @@ This was originally built to serve the purpose of providing summarizations, quic
 
 2. Open the project in Xcode.
 3. Change the API URL in the `sendAPIRequest` function to match your API endpoint.
-4. Update the Development Team and Bundle Identifier for each target to match your Apple Developer account details.
+4. Update the Development Team and Bundle Identifier for each target to match your Apple Developer account details:
+
+_You will need to replace “API_URL” and “API_PORT” with your API URL and PORT details to the KeyboardViewController.swift file on line 130._
+
+_Before building, be sure to add your Apple Developer details so you can sign the app properly._
+
 5. Build and run the project on a simulator or a connected device.
 
 ## ⚡ Usage ⚡
@@ -56,7 +57,7 @@ This was originally built to serve the purpose of providing summarizations, quic
 
 For example, if the input field text is:
     
-    Write a nice but detailed reply with the solution
+    Write a nice and detailed reply with the solution
     
 and the clipboard text is: 
     
