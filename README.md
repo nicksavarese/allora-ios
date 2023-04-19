@@ -91,7 +91,7 @@ The API will receive this phrase with a request to continue it.
 
 
 
-# 🖌 Customization
+## 🖌 Customization
 
 To customize the keyboard layout or the API request, modify the `KeyboardViewController` class in the Xcode project.
 
