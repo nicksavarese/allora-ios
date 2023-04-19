@@ -43,7 +43,7 @@ class KeyboardViewController: UIInputViewController {
         ])
         
         let continueClipboardButton = UIButton(type: .system)
-        continueClipboardButton.setTitle("Continue Clipboard", for: .normal)
+        continueClipboardButton.setTitle("Clipboard...", for: .normal)
         continueClipboardButton.addTarget(self, action: #selector(continueClipboardButtonTapped), for: .touchUpInside)
         customKeyboardView.addSubview(continueClipboardButton)
         continueClipboardButton.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +55,7 @@ class KeyboardViewController: UIInputViewController {
         ])
         
         let continueTextButton = UIButton(type: .system)
-        continueTextButton.setTitle("Continue Text", for: .normal)
+        continueTextButton.setTitle("Text...", for: .normal)
         continueTextButton.addTarget(self, action: #selector(continueTextButtonTapped), for: .touchUpInside)
         customKeyboardView.addSubview(continueTextButton)
         continueTextButton.translatesAutoresizingMaskIntoConstraints = false
