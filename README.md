@@ -30,7 +30,7 @@ This was originally built to serve the purpose of providing summarizations, quic
 1. Clone this repository:
 
     ```
-    git clone https://github.com/nicksavarese/?????.git
+    git clone https://github.com/nicksavarese/allora-ios.git
     ```
 
 2. Open the project in Xcode.
@@ -103,7 +103,7 @@ Remember to update the Development Team and Bundle Identifier for each target to
 
 ## 📃 License
 
-This project is licensed under the Apache License, Version 3.0. See the LICENSE file for more details.
+This project is licensed under the Apache License, Version 2.0. See the LICENSE file for more details.
 
 
 ## ⚠ Lil' Disclaimer / Not Legal Advice ⚠️
