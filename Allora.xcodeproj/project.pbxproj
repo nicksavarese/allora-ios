@@ -1,0 +1,762 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BE4278EB29D127EF005247D8 /* AlloraApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4278EA29D127EF005247D8 /* AlloraApp.swift */; };
+		BE4278ED29D127EF005247D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4278EC29D127EF005247D8 /* ContentView.swift */; };
+		BE4278EF29D127F0005247D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4278EE29D127F0005247D8 /* Assets.xcassets */; };
+		BE4278F229D127F0005247D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4278F129D127F0005247D8 /* Preview Assets.xcassets */; };
+		BE4278FC29D127F0005247D8 /* AlloraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4278FB29D127F0005247D8 /* AlloraTests.swift */; };
+		BE42790629D127F0005247D8 /* AlloraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42790529D127F0005247D8 /* AlloraUITests.swift */; };
+		BE42790829D127F0005247D8 /* AlloraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42790729D127F0005247D8 /* AlloraUITestsLaunchTests.swift */; };
+		BE42791B29D12807005247D8 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42791A29D12807005247D8 /* KeyboardViewController.swift */; };
+		BE42791F29D12807005247D8 /* AlloraKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BE42791829D12807005247D8 /* AlloraKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BE638D0929D29DB40038278B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4278EE29D127F0005247D8 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE4278F829D127F0005247D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE4278DF29D127EF005247D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE4278E629D127EF005247D8;
+			remoteInfo = Allora;
+		};
+		BE42790229D127F0005247D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE4278DF29D127EF005247D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE4278E629D127EF005247D8;
+			remoteInfo = Allora;
+		};
+		BE42791D29D12807005247D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE4278DF29D127EF005247D8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE42791729D12807005247D8;
+			remoteInfo = AlloraKeyboard;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		BE42792329D12807005247D8 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BE42791F29D12807005247D8 /* AlloraKeyboard.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		BE4278E729D127EF005247D8 /* Allora.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Allora.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE4278EA29D127EF005247D8 /* AlloraApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlloraApp.swift; sourceTree = "<group>"; };
+		BE4278EC29D127EF005247D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BE4278EE29D127F0005247D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BE4278F129D127F0005247D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		BE4278F729D127F0005247D8 /* AlloraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlloraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE4278FB29D127F0005247D8 /* AlloraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlloraTests.swift; sourceTree = "<group>"; };
+		BE42790129D127F0005247D8 /* AlloraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlloraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE42790529D127F0005247D8 /* AlloraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlloraUITests.swift; sourceTree = "<group>"; };
+		BE42790729D127F0005247D8 /* AlloraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlloraUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BE42791829D12807005247D8 /* AlloraKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AlloraKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE42791A29D12807005247D8 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
+		BE42791C29D12807005247D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE42792429D12A6E005247D8 /* AlloraKeyboard.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AlloraKeyboard.entitlements; sourceTree = "<group>"; };
+		BE42792529D12A79005247D8 /* Allora.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Allora.entitlements; sourceTree = "<group>"; };
+		BEA37B6E29F09A2200CA9E00 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = Allora/README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BE4278E429D127EF005247D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE4278F429D127F0005247D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE4278FE29D127F0005247D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE42791529D12807005247D8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BE4278DE29D127EF005247D8 = {
+			isa = PBXGroup;
+			children = (
+				BEA37B6E29F09A2200CA9E00 /* README.md */,
+				BE4278E929D127EF005247D8 /* Allora */,
+				BE4278FA29D127F0005247D8 /* AlloraTests */,
+				BE42790429D127F0005247D8 /* AlloraUITests */,
+				BE42791929D12807005247D8 /* AlloraKeyboard */,
+				BE4278E829D127EF005247D8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BE4278E829D127EF005247D8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BE4278E729D127EF005247D8 /* Allora.app */,
+				BE4278F729D127F0005247D8 /* AlloraTests.xctest */,
+				BE42790129D127F0005247D8 /* AlloraUITests.xctest */,
+				BE42791829D12807005247D8 /* AlloraKeyboard.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BE4278E929D127EF005247D8 /* Allora */ = {
+			isa = PBXGroup;
+			children = (
+				BE42792529D12A79005247D8 /* Allora.entitlements */,
+				BE4278EA29D127EF005247D8 /* AlloraApp.swift */,
+				BE4278EC29D127EF005247D8 /* ContentView.swift */,
+				BE4278EE29D127F0005247D8 /* Assets.xcassets */,
+				BE4278F029D127F0005247D8 /* Preview Content */,
+			);
+			path = Allora;
+			sourceTree = "<group>";
+		};
+		BE4278F029D127F0005247D8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				BE4278F129D127F0005247D8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		BE4278FA29D127F0005247D8 /* AlloraTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE4278FB29D127F0005247D8 /* AlloraTests.swift */,
+			);
+			path = AlloraTests;
+			sourceTree = "<group>";
+		};
+		BE42790429D127F0005247D8 /* AlloraUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BE42790529D127F0005247D8 /* AlloraUITests.swift */,
+				BE42790729D127F0005247D8 /* AlloraUITestsLaunchTests.swift */,
+			);
+			path = AlloraUITests;
+			sourceTree = "<group>";
+		};
+		BE42791929D12807005247D8 /* AlloraKeyboard */ = {
+			isa = PBXGroup;
+			children = (
+				BE42792429D12A6E005247D8 /* AlloraKeyboard.entitlements */,
+				BE42791A29D12807005247D8 /* KeyboardViewController.swift */,
+				BE42791C29D12807005247D8 /* Info.plist */,
+			);
+			path = AlloraKeyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BE4278E629D127EF005247D8 /* Allora */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE42790B29D127F0005247D8 /* Build configuration list for PBXNativeTarget "Allora" */;
+			buildPhases = (
+				BE4278E329D127EF005247D8 /* Sources */,
+				BE4278E429D127EF005247D8 /* Frameworks */,
+				BE4278E529D127EF005247D8 /* Resources */,
+				BE42792329D12807005247D8 /* Embed Foundation Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE42791E29D12807005247D8 /* PBXTargetDependency */,
+			);
+			name = Allora;
+			productName = Allora;
+			productReference = BE4278E729D127EF005247D8 /* Allora.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BE4278F629D127F0005247D8 /* AlloraTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE42790E29D127F0005247D8 /* Build configuration list for PBXNativeTarget "AlloraTests" */;
+			buildPhases = (
+				BE4278F329D127F0005247D8 /* Sources */,
+				BE4278F429D127F0005247D8 /* Frameworks */,
+				BE4278F529D127F0005247D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE4278F929D127F0005247D8 /* PBXTargetDependency */,
+			);
+			name = AlloraTests;
+			productName = AlloraTests;
+			productReference = BE4278F729D127F0005247D8 /* AlloraTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BE42790029D127F0005247D8 /* AlloraUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE42791129D127F0005247D8 /* Build configuration list for PBXNativeTarget "AlloraUITests" */;
+			buildPhases = (
+				BE4278FD29D127F0005247D8 /* Sources */,
+				BE4278FE29D127F0005247D8 /* Frameworks */,
+				BE4278FF29D127F0005247D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE42790329D127F0005247D8 /* PBXTargetDependency */,
+			);
+			name = AlloraUITests;
+			productName = AlloraUITests;
+			productReference = BE42790129D127F0005247D8 /* AlloraUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		BE42791729D12807005247D8 /* AlloraKeyboard */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE42792029D12807005247D8 /* Build configuration list for PBXNativeTarget "AlloraKeyboard" */;
+			buildPhases = (
+				BE42791429D12807005247D8 /* Sources */,
+				BE42791529D12807005247D8 /* Frameworks */,
+				BE42791629D12807005247D8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AlloraKeyboard;
+			productName = AlloraKeyboard;
+			productReference = BE42791829D12807005247D8 /* AlloraKeyboard.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BE4278DF29D127EF005247D8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1420;
+				LastUpgradeCheck = 1420;
+				TargetAttributes = {
+					BE4278E629D127EF005247D8 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+					BE4278F629D127F0005247D8 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BE4278E629D127EF005247D8;
+					};
+					BE42790029D127F0005247D8 = {
+						CreatedOnToolsVersion = 14.2;
+						TestTargetID = BE4278E629D127EF005247D8;
+					};
+					BE42791729D12807005247D8 = {
+						CreatedOnToolsVersion = 14.2;
+					};
+				};
+			};
+			buildConfigurationList = BE4278E229D127EF005247D8 /* Build configuration list for PBXProject "Allora" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BE4278DE29D127EF005247D8;
+			productRefGroup = BE4278E829D127EF005247D8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BE4278E629D127EF005247D8 /* Allora */,
+				BE4278F629D127F0005247D8 /* AlloraTests */,
+				BE42790029D127F0005247D8 /* AlloraUITests */,
+				BE42791729D12807005247D8 /* AlloraKeyboard */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BE4278E529D127EF005247D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE4278F229D127F0005247D8 /* Preview Assets.xcassets in Resources */,
+				BE4278EF29D127F0005247D8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE4278F529D127F0005247D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE4278FF29D127F0005247D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE42791629D12807005247D8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE638D0929D29DB40038278B /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BE4278E329D127EF005247D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE4278ED29D127EF005247D8 /* ContentView.swift in Sources */,
+				BE4278EB29D127EF005247D8 /* AlloraApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE4278F329D127F0005247D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE4278FC29D127F0005247D8 /* AlloraTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE4278FD29D127F0005247D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE42790629D127F0005247D8 /* AlloraUITests.swift in Sources */,
+				BE42790829D127F0005247D8 /* AlloraUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE42791429D12807005247D8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE42791B29D12807005247D8 /* KeyboardViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BE4278F929D127F0005247D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE4278E629D127EF005247D8 /* Allora */;
+			targetProxy = BE4278F829D127F0005247D8 /* PBXContainerItemProxy */;
+		};
+		BE42790329D127F0005247D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE4278E629D127EF005247D8 /* Allora */;
+			targetProxy = BE42790229D127F0005247D8 /* PBXContainerItemProxy */;
+		};
+		BE42791E29D12807005247D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE42791729D12807005247D8 /* AlloraKeyboard */;
+			targetProxy = BE42791D29D12807005247D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		BE42790929D127F0005247D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needs acccess to local network devices";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BE42790A29D127F0005247D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needs access to local network devices";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BE42790C29D127F0005247D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Allora/Allora.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Allora/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AlLoRa;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Accesses local devices";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bubbletheorem.Allora;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE42790D29D127F0005247D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
+				CODE_SIGN_ENTITLEMENTS = Allora/Allora.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Allora/Preview Content\"";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = AlLoRa;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Accesses local devices";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bubbletheorem.Allora;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BE42790F29D127F0005247D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bubbletheorem.AlloraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Allora.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Allora";
+			};
+			name = Debug;
+		};
+		BE42791029D127F0005247D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bubbletheorem.AlloraTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Allora.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Allora";
+			};
+			name = Release;
+		};
+		BE42791229D127F0005247D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local devices";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bubbletheorem.AlloraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Allora;
+			};
+			name = Debug;
+		};
+		BE42791329D127F0005247D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local devices";
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bubbletheorem.AlloraUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Allora;
+			};
+			name = Release;
+		};
+		BE42792129D12807005247D8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AlloraKeyboard/AlloraKeyboard.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AlloraKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AlloraKeyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Uses netwrok";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bubbletheorem.Allora.AlloraKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BE42792229D12807005247D8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AlloraKeyboard/AlloraKeyboard.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AlloraKeyboard/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = AlloraKeyboard;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Uses netwrok";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bubbletheorem.Allora.AlloraKeyboard;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BE4278E229D127EF005247D8 /* Build configuration list for PBXProject "Allora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE42790929D127F0005247D8 /* Debug */,
+				BE42790A29D127F0005247D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE42790B29D127F0005247D8 /* Build configuration list for PBXNativeTarget "Allora" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE42790C29D127F0005247D8 /* Debug */,
+				BE42790D29D127F0005247D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE42790E29D127F0005247D8 /* Build configuration list for PBXNativeTarget "AlloraTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE42790F29D127F0005247D8 /* Debug */,
+				BE42791029D127F0005247D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE42791129D127F0005247D8 /* Build configuration list for PBXNativeTarget "AlloraUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE42791229D127F0005247D8 /* Debug */,
+				BE42791329D127F0005247D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE42792029D12807005247D8 /* Build configuration list for PBXNativeTarget "AlloraKeyboard" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE42792129D12807005247D8 /* Debug */,
+				BE42792229D12807005247D8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BE4278DF29D127EF005247D8 /* Project object */;
+}
