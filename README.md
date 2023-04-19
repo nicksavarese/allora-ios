@@ -19,8 +19,8 @@ This was originally built to serve the purpose of providing summarizations, quic
 * Custom keyboard layout with four buttons:
     1. Send Both
     2. Send Text
-    3. Continue Clipboard
-    4. Continue Text
+    3. Clipboard...
+    4. Text...
 * Extracts the input field text and clipboard content.
 * Sends extracted text to a REST API for processing.
 * Displays the API response in the input field.
@@ -60,18 +60,22 @@ For example, if the input field text is:
     Write a nice and detailed reply with the solution
     
 and the clipboard text is: 
-    
-    “Can u pls help?? my Apple watch has two faces smiling and frowning at me on it and now it won’t ring anymore????”
+   
+    Can u pls help?? my Apple watch has two faces smiling and frowning at me on it and now it won’t ring anymore????
     
 the API will receive both phrases and respond accordingly.
     
 ### Send Text: 
 
-#### Sends the input field text only. For example, if the input field text is 
+#### Sends the input field text only. 
+
+For example, if the input field text is 
+
     Write a quote by Marcus Aurelius
+    
 the API will receive this phrase alone.
 
-### Continue Clipboard:
+### Clipboard...:
 
 #### Sends the highlighted (clipboard) text, asking the API to continue it. 
 
@@ -81,9 +85,11 @@ For example, if the clipboard text is
     
 the API will receive this phrase with a request to continue it.
 
-### Continue Text: 
+### Text...: 
 
-#### Sends the input field text, asking the API to continue it. For example, if the input field text is 
+#### Sends the input field text, asking the API to continue it. 
+
+For example, if the input field text is 
 
     Here is the plot of the show, ‘Westworld':
 
