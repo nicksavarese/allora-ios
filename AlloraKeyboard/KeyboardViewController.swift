@@ -43,7 +43,7 @@ class KeyboardViewController: UIInputViewController {
         ])
         
         let continueClipboardButton = UIButton(type: .system)
-        continueClipboardButton.setTitle("Clipboard...", for: .normal)
+        continueClipboardButton.setTitle("Continue Clipboard", for: .normal)
         continueClipboardButton.addTarget(self, action: #selector(continueClipboardButtonTapped), for: .touchUpInside)
         customKeyboardView.addSubview(continueClipboardButton)
         continueClipboardButton.translatesAutoresizingMaskIntoConstraints = false
@@ -55,7 +55,7 @@ class KeyboardViewController: UIInputViewController {
         ])
         
         let continueTextButton = UIButton(type: .system)
-        continueTextButton.setTitle("Text...", for: .normal)
+        continueTextButton.setTitle("Continue Text", for: .normal)
         continueTextButton.addTarget(self, action: #selector(continueTextButtonTapped), for: .touchUpInside)
         customKeyboardView.addSubview(continueTextButton)
         continueTextButton.translatesAutoresizingMaskIntoConstraints = false
@@ -127,13 +127,12 @@ class KeyboardViewController: UIInputViewController {
     func sendAPIRequest(instruction: String, highlightedText: String, inputFieldText: String) {
         
         // Combine text a, text b, and text c into a formatted REST API request
-        let apiURL = "http://API_URL:API_PORT/run/textgen"
+        let apiURL = "http://API_URL:API_PORT/api/v1/generate"
         print("Sending API Request")
         let parameters: [String: Any] = [
             "data": [
                 [
-                    instruction,
-                    [
+                        "prompt":instruction,
                         "max_new_tokens": 100,
                         "do_sample": true,
                         "temperature": 0.7,
@@ -153,7 +152,6 @@ class KeyboardViewController: UIInputViewController {
                         "truncation_length": 2048,
                         "custom_stopping_strings": ["### Instruction:"],
                         "ban_eos_token": false,
-                    ]
                 ]
             ]
         ]
@@ -190,14 +188,12 @@ class KeyboardViewController: UIInputViewController {
     func parseAPIResponse(responseData: Data) -> String {
         do {
             if let json = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
-               let dataArray = json["data"] as? [String] {
+               let dataArray = json["results"] as? [[String: Any]] {
                 if dataArray.count > 0 {
-                    let rawResponse = dataArray[0]
-                    guard let range = rawResponse.range(of: "### Response:") else {
-                        return rawResponse
+                    let dataObject = dataArray[0]
+                    if let parsedResponse = dataObject["text"] as? String {
+                        return parsedResponse.trimmingCharacters(in: .whitespacesAndNewlines)
                     }
-                    let parsedResponse = String(rawResponse[range.upperBound...])
-                    return parsedResponse.trimmingCharacters(in: .whitespacesAndNewlines)
                 }
             }
         } catch {
@@ -206,5 +202,4 @@ class KeyboardViewController: UIInputViewController {
         
         return ""
     }
-    
 }
