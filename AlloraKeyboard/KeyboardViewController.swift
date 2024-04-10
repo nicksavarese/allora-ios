@@ -1,205 +1,159 @@
 import UIKit
 
 class KeyboardViewController: UIInputViewController {
-    let customKeyboardView = UIInputView()
-    
+
+    let customKeyboardView = UIInputView(frame: .zero, inputViewStyle: .keyboard)
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomKeyboard()
     }
-    
+
     func setupCustomKeyboard() {
         customKeyboardView.translatesAutoresizingMaskIntoConstraints = false
-        inputView?.addSubview(customKeyboardView)
+        view.addSubview(customKeyboardView)
+        
         NSLayoutConstraint.activate([
             customKeyboardView.topAnchor.constraint(equalTo: view.topAnchor),
-            customKeyboardView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            customKeyboardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             customKeyboardView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             customKeyboardView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
         ])
         
-        let executeButton = UIButton(type: .system)
-        executeButton.setTitle("Send Both", for: .normal)
-        executeButton.addTarget(self, action: #selector(executeButtonTapped), for: .touchUpInside)
-        customKeyboardView.addSubview(executeButton)
-        executeButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            executeButton.leadingAnchor.constraint(equalTo: customKeyboardView.leadingAnchor),
-            executeButton.topAnchor.constraint(equalTo: customKeyboardView.topAnchor),
-            executeButton.widthAnchor.constraint(equalTo: customKeyboardView.widthAnchor, multiplier: 0.25),
-            executeButton.heightAnchor.constraint(equalTo: customKeyboardView.heightAnchor, multiplier: 0.5)
-        ])
-        
-        let textOnlyButton = UIButton(type: .system)
-        textOnlyButton.setTitle("Send Text", for: .normal)
-        textOnlyButton.addTarget(self, action: #selector(textOnlyButtonTapped), for: .touchUpInside)
-        customKeyboardView.addSubview(textOnlyButton)
-        textOnlyButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            textOnlyButton.leadingAnchor.constraint(equalTo: executeButton.trailingAnchor),
-            textOnlyButton.topAnchor.constraint(equalTo: customKeyboardView.topAnchor),
-            textOnlyButton.widthAnchor.constraint(equalTo: customKeyboardView.widthAnchor, multiplier: 0.25),
-            textOnlyButton.heightAnchor.constraint(equalTo: customKeyboardView.heightAnchor, multiplier: 0.5)
-        ])
-        
-        let continueClipboardButton = UIButton(type: .system)
-        continueClipboardButton.setTitle("Clipboard...", for: .normal)
-        continueClipboardButton.addTarget(self, action: #selector(continueClipboardButtonTapped), for: .touchUpInside)
-        customKeyboardView.addSubview(continueClipboardButton)
-        continueClipboardButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            continueClipboardButton.leadingAnchor.constraint(equalTo: textOnlyButton.trailingAnchor),
-            continueClipboardButton.topAnchor.constraint(equalTo: customKeyboardView.topAnchor),
-            continueClipboardButton.widthAnchor.constraint(equalTo: customKeyboardView.widthAnchor, multiplier: 0.25),
-            continueClipboardButton.heightAnchor.constraint(equalTo: customKeyboardView.heightAnchor, multiplier: 0.5)
-        ])
-        
-        let continueTextButton = UIButton(type: .system)
-        continueTextButton.setTitle("Text...", for: .normal)
-        continueTextButton.addTarget(self, action: #selector(continueTextButtonTapped), for: .touchUpInside)
-        customKeyboardView.addSubview(continueTextButton)
-        continueTextButton.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            continueTextButton.leadingAnchor.constraint(equalTo: continueClipboardButton.trailingAnchor),
-            continueTextButton.topAnchor.constraint(equalTo: customKeyboardView.topAnchor),
-            continueTextButton.widthAnchor.constraint(equalTo: customKeyboardView.widthAnchor, multiplier: 0.25),
-            continueTextButton.heightAnchor.constraint(equalTo: customKeyboardView.heightAnchor, multiplier: 0.5)
-        ])
+        setupButtons()
     }
-    
-    
+
+    func setupButtons() {
+        let stackView = UIStackView()
+        stackView.axis = .horizontal
+        stackView.distribution = .fillEqually
+        stackView.alignment = .fill
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+
+        customKeyboardView.addSubview(stackView)
+
+        NSLayoutConstraint.activate([
+            stackView.topAnchor.constraint(equalTo: customKeyboardView.topAnchor),
+            stackView.bottomAnchor.constraint(equalTo: customKeyboardView.bottomAnchor),
+            stackView.leadingAnchor.constraint(equalTo: customKeyboardView.leadingAnchor),
+            stackView.trailingAnchor.constraint(equalTo: customKeyboardView.trailingAnchor),
+        ])
+
+        let buttonTitles = ["Send Both", "Send Text", "Clipboard...", "Text..."]
+        let buttonSelectors: [Selector] = [#selector(executeButtonTapped), #selector(textOnlyButtonTapped), #selector(continueClipboardButtonTapped), #selector(continueTextButtonTapped)]
+
+        for (index, title) in buttonTitles.enumerated() {
+            let button = UIButton(type: .system)
+            button.setTitle(title, for: .normal)
+            button.addTarget(self, action: buttonSelectors[index], for: .touchUpInside)
+            stackView.addArrangedSubview(button)
+        }
+    }
+
+
     @objc func executeButtonTapped() {
-        // Call the function to handle the extraction and API request
-        handleTextExtractionAndAPIRequest(instruction: "Below is an instrction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) : \"\(getHighlightedText())\" | \n### Response:")
+        handleTextExtractionAndAPIRequest(instruction: "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) : \"\(getHighlightedText())\" | \n### Response:")
     }
     
     @objc func textOnlyButtonTapped() {
-        // Call the function to handle the extraction and API request
-        handleTextExtractionAndAPIRequest(instruction: "Below is an instrction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) \n### Response:")
+        handleTextExtractionAndAPIRequest(instruction: "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) \n### Response:")
     }
     
     @objc func continueClipboardButtonTapped() {
-        // Call the function to handle the extraction and API request
-        handleTextExtractionAndAPIRequest(instruction: "Below is an instrction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getHighlightedText())\" | \n### Response:")
+        handleTextExtractionAndAPIRequest(instruction: "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getHighlightedText())\" | \n### Response:")
     }
     
     @objc func continueTextButtonTapped() {
-        // Call the function to handle the extraction and API request
-        handleTextExtractionAndAPIRequest(instruction: "Below is an instrction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getInputFieldText())\" | \n### Response:")
+        handleTextExtractionAndAPIRequest(instruction: "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getInputFieldText())\" | \n### Response:")
     }
-    
+
     func handleTextExtractionAndAPIRequest(instruction: String) {
-        // Get the clipboard copied text (highlightedText)
-        let clipboard = UIPasteboard.general
-        let highlightedText = clipboard.string ?? ""
-        
-        // Get the current input text field value (inputFieldText)
+        let highlightedText = getHighlightedText()
         let inputFieldText = getInputFieldText()
-        
-        // Call the function to send a REST API request with the extracted text
         sendAPIRequest(instruction: instruction, highlightedText: highlightedText, inputFieldText: inputFieldText)
     }
     
     func getInputFieldText() -> String {
-        guard let textDocumentProxy = textDocumentProxy as? UITextDocumentProxy else { return "" }
+        guard let textDocumentProxy = self.textDocumentProxy as? UITextDocumentProxy else { return "" }
         return textDocumentProxy.documentContextBeforeInput ?? ""
     }
     
     func getHighlightedText() -> String {
-        let clipboard = UIPasteboard.general
-        return clipboard.string ?? ""
+        return UIPasteboard.general.string ?? ""
     }
-    
-    func printAPIResponse(response: String) {
-        guard let textDocumentProxy = textDocumentProxy as? UITextDocumentProxy else { return }
+
+    func sendAPIRequest(instruction: String, highlightedText: String, inputFieldText: String) {
+        // Assuming your server is set up to mimic OpenAI's API structure
+        let apiURL = "TEXT_GENERATION_HOSTNAME:PORT_NUMBER/v1/completions" // Update the engine if necessary
+        print("Sending API Request to OpenAI format endpoint")
         
-        // Delete text b from the input field
+        // Combine your custom instruction with the highlighted and input text
+        let combinedPrompt = "\(instruction) \(highlightedText) \(inputFieldText)"
+        
+        // OpenAI compatible parameters
+        let parameters: [String: Any] = [
+            "prompt": combinedPrompt,
+            "max_tokens": 100,
+            "temperature": 0.7,
+            "top_p": 0.9,
+            "n": 1, // Number of completions to generate
+            "stream": false, //
+            "stop": "#" //
+        ]
+
+        var request = URLRequest(url: URL(string: apiURL)!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        do {
+            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        } catch {
+            print("Error creating request body: \(error.localizedDescription)")
+        }
+
+        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            if let error = error {
+                print("Error making API request: \(error.localizedDescription)")
+                return
+            }
+
+            guard let data = data else { return }
+            let parsedResponse = self?.parseAPIResponse(responseData: data) ?? ""
+
+            DispatchQueue.main.async {
+                self?.printAPIResponse(response: parsedResponse)
+            }
+        }
+
+        task.resume()
+    }
+
+    
+    func parseAPIResponse(responseData: Data) -> String {
+        do {
+            if let json = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
+               let choices = json["choices"] as? [[String: Any]],
+               !choices.isEmpty,
+               let firstChoice = choices.first,
+               let text = firstChoice["text"] as? String {
+                return text.trimmingCharacters(in: .whitespacesAndNewlines)
+            }
+        } catch {
+            print("Error parsing API response: \(error.localizedDescription)")
+        }
+        
+        return ""
+    }
+
+    func printAPIResponse(response: String) {
+        guard let textDocumentProxy = self.textDocumentProxy as? UITextDocumentProxy else { return }
+        
         if let inputFieldText = textDocumentProxy.documentContextBeforeInput {
             for _ in inputFieldText {
                 textDocumentProxy.deleteBackward()
             }
         }
         
-        // Overwrite text b with the response (text d)
         textDocumentProxy.insertText(response)
-    }
-    
-    func sendAPIRequest(instruction: String, highlightedText: String, inputFieldText: String) {
-        
-        // Combine text a, text b, and text c into a formatted REST API request
-        let apiURL = "http://API_URL:API_PORT/api/v1/generate"
-        print("Sending API Request")
-        let parameters: [String: Any] = [
-            "data": [
-                [
-                        "prompt":instruction,
-                        "max_new_tokens": 100,
-                        "do_sample": true,
-                        "temperature": 0.7,
-                        "top_p": 0.9,
-                        "typical_p": 1,
-                        "repetition_penalty": 1.05,
-                        "encoder_repetition_penalty": 1.0,
-                        "top_k": 0,
-                        "min_length": 0,
-                        "no_repeat_ngram_size": 0,
-                        "num_beams": 1,
-                        "penalty_alpha": 0,
-                        "length_penalty": -1,
-                        "early_stopping": false,
-                        "seed": -1,
-                        "add_bos_token": false,
-                        "truncation_length": 2048,
-                        "custom_stopping_strings": ["### Instruction:"],
-                        "ban_eos_token": false,
-                ]
-            ]
-        ]
-        
-        
-        // Make Request
-        var request = URLRequest(url: URL(string: apiURL)!)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
-        } catch {
-            print("Error creating request body: \(error)")
-        }
-        
-        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            if let error = error {
-                print("Error making API request: \(error)")
-                return
-            }
-            
-            guard let data = data else { return }
-            let parsedResponse = self?.parseAPIResponse(responseData: data) ?? ""
-            
-            DispatchQueue.main.async {
-                self?.printAPIResponse(response: parsedResponse)
-            }
-        }
-        
-        task.resume()
-    }
-    
-    func parseAPIResponse(responseData: Data) -> String {
-        do {
-            if let json = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
-               let dataArray = json["results"] as? [[String: Any]] {
-                if dataArray.count > 0 {
-                    let dataObject = dataArray[0]
-                    if let parsedResponse = dataObject["text"] as? String {
-                        return parsedResponse.trimmingCharacters(in: .whitespacesAndNewlines)
-                    }
-                }
-            }
-        } catch {
-            print("Error parsing API response: \(error)")
-        }
-        
-        return ""
     }
 }
