@@ -3,10 +3,13 @@ import UIKit
 class KeyboardViewController: UIInputViewController {
 
     let customKeyboardView = UIInputView(frame: .zero, inputViewStyle: .keyboard)
+    var activityIndicator: UIActivityIndicatorView!
+    var shouldReplaceEntireText = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCustomKeyboard()
+        setupActivityIndicator()
     }
 
     func setupCustomKeyboard() {
@@ -21,6 +24,18 @@ class KeyboardViewController: UIInputViewController {
         ])
         
         setupButtons()
+    }
+
+    func setupActivityIndicator() {
+        activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(activityIndicator)
+        
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.topAnchor.constraint(equalTo: customKeyboardView.bottomAnchor, constant: 8)
+        ])
     }
 
     func setupButtons() {
@@ -50,29 +65,30 @@ class KeyboardViewController: UIInputViewController {
         }
     }
 
-
     @objc func executeButtonTapped() {
-        handleTextExtractionAndAPIRequest(instruction: "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) : \"\(getHighlightedText())\" | \n### Response:")
+        shouldReplaceEntireText = true
+        let instruction = "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) : \"\(getHighlightedText())\" | \n### Response:"
+        sendAPIRequest(instruction: instruction, highlightedText: getHighlightedText(), inputFieldText: getInputFieldText())
     }
     
     @objc func textOnlyButtonTapped() {
-        handleTextExtractionAndAPIRequest(instruction: "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) \n### Response:")
+        shouldReplaceEntireText = true
+        let instruction = "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) \n### Response:"
+        sendAPIRequest(instruction: instruction, highlightedText: "", inputFieldText: getInputFieldText())
     }
     
     @objc func continueClipboardButtonTapped() {
-        handleTextExtractionAndAPIRequest(instruction: "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getHighlightedText())\" | \n### Response:")
+        shouldReplaceEntireText = false
+        let instruction = "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getHighlightedText())\" | \n### Response:"
+        sendAPIRequest(instruction: instruction, highlightedText: getHighlightedText(), inputFieldText: "")
     }
     
     @objc func continueTextButtonTapped() {
-        handleTextExtractionAndAPIRequest(instruction: "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getInputFieldText())\" | \n### Response:")
+        shouldReplaceEntireText = false
+        let instruction = "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getInputFieldText())\" | \n### Response:"
+        sendAPIRequest(instruction: instruction, highlightedText: "", inputFieldText: getInputFieldText())
     }
 
-    func handleTextExtractionAndAPIRequest(instruction: String) {
-        let highlightedText = getHighlightedText()
-        let inputFieldText = getInputFieldText()
-        sendAPIRequest(instruction: instruction, highlightedText: highlightedText, inputFieldText: inputFieldText)
-    }
-    
     func getInputFieldText() -> String {
         guard let textDocumentProxy = self.textDocumentProxy as? UITextDocumentProxy else { return "" }
         return textDocumentProxy.documentContextBeforeInput ?? ""
@@ -83,22 +99,19 @@ class KeyboardViewController: UIInputViewController {
     }
 
     func sendAPIRequest(instruction: String, highlightedText: String, inputFieldText: String) {
-        // Assuming your server is set up to mimic OpenAI's API structure
-        let apiURL = "TEXT_GENERATION_HOSTNAME:PORT_NUMBER/v1/completions" // Update the engine if necessary
+        let apiURL = "https://OPENAI-COMPATIBLE-API-URL:PORT/v1/completions"
         print("Sending API Request to OpenAI format endpoint")
         
-        // Combine your custom instruction with the highlighted and input text
         let combinedPrompt = "\(instruction) \(highlightedText) \(inputFieldText)"
         
-        // OpenAI compatible parameters
         let parameters: [String: Any] = [
             "prompt": combinedPrompt,
             "max_tokens": 100,
             "temperature": 0.7,
             "top_p": 0.9,
-            "n": 1, // Number of completions to generate
-            "stream": false, //
-            "stop": "#" //
+            "n": 1,
+            "stream": false,
+            "stop": "#"
         ]
 
         var request = URLRequest(url: URL(string: apiURL)!)
@@ -111,23 +124,30 @@ class KeyboardViewController: UIInputViewController {
             print("Error creating request body: \(error.localizedDescription)")
         }
 
+        DispatchQueue.main.async {
+            self.startLoading()
+        }
+
         let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
+            DispatchQueue.main.async {
+                self?.stopLoading()
+            }
+
             if let error = error {
                 print("Error making API request: \(error.localizedDescription)")
                 return
             }
 
             guard let data = data else { return }
-            let parsedResponse = self?.parseAPIResponse(responseData: data) ?? ""
-
-            DispatchQueue.main.async {
-                self?.printAPIResponse(response: parsedResponse)
+            if let responseText = self?.parseAPIResponse(responseData: data) {
+                DispatchQueue.main.async {
+                    self?.updateTextInput(with: responseText)
+                }
             }
         }
 
         task.resume()
     }
-
     
     func parseAPIResponse(responseData: Data) -> String {
         do {
@@ -145,15 +165,32 @@ class KeyboardViewController: UIInputViewController {
         return ""
     }
 
-    func printAPIResponse(response: String) {
+    func updateTextInput(with text: String) {
         guard let textDocumentProxy = self.textDocumentProxy as? UITextDocumentProxy else { return }
         
-        if let inputFieldText = textDocumentProxy.documentContextBeforeInput {
-            for _ in inputFieldText {
+        if shouldReplaceEntireText {
+            // Delete all existing text
+            while textDocumentProxy.documentContextBeforeInput?.isEmpty == false {
                 textDocumentProxy.deleteBackward()
             }
+            // Insert new text without quotes
+            textDocumentProxy.insertText(text)
+        } else {
+            // For continue operations, just append the text
+            textDocumentProxy.insertText(text)
         }
-        
-        textDocumentProxy.insertText(response)
+    }
+
+    func startLoading() {
+        activityIndicator.startAnimating()
+        updateTextInput(with: "Loading...")
+    }
+
+    func stopLoading() {
+        activityIndicator.stopAnimating()
+        // Remove "Loading..." text
+        for _ in 0..<10 {
+            (textDocumentProxy as? UITextDocumentProxy)?.deleteBackward()
+        }
     }
 }

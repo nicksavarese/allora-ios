@@ -11,29 +11,12 @@
 		BE4278ED29D127EF005247D8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4278EC29D127EF005247D8 /* ContentView.swift */; };
 		BE4278EF29D127F0005247D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4278EE29D127F0005247D8 /* Assets.xcassets */; };
 		BE4278F229D127F0005247D8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4278F129D127F0005247D8 /* Preview Assets.xcassets */; };
-		BE4278FC29D127F0005247D8 /* AlloraTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4278FB29D127F0005247D8 /* AlloraTests.swift */; };
-		BE42790629D127F0005247D8 /* AlloraUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42790529D127F0005247D8 /* AlloraUITests.swift */; };
-		BE42790829D127F0005247D8 /* AlloraUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42790729D127F0005247D8 /* AlloraUITestsLaunchTests.swift */; };
 		BE42791B29D12807005247D8 /* KeyboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE42791A29D12807005247D8 /* KeyboardViewController.swift */; };
 		BE42791F29D12807005247D8 /* AlloraKeyboard.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BE42791829D12807005247D8 /* AlloraKeyboard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BE638D0929D29DB40038278B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4278EE29D127F0005247D8 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		BE4278F829D127F0005247D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE4278DF29D127EF005247D8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE4278E629D127EF005247D8;
-			remoteInfo = Allora;
-		};
-		BE42790229D127F0005247D8 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BE4278DF29D127EF005247D8 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = BE4278E629D127EF005247D8;
-			remoteInfo = Allora;
-		};
 		BE42791D29D12807005247D8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BE4278DF29D127EF005247D8 /* Project object */;
@@ -64,11 +47,6 @@
 		BE4278EC29D127EF005247D8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		BE4278EE29D127F0005247D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE4278F129D127F0005247D8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		BE4278F729D127F0005247D8 /* AlloraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlloraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE4278FB29D127F0005247D8 /* AlloraTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlloraTests.swift; sourceTree = "<group>"; };
-		BE42790129D127F0005247D8 /* AlloraUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AlloraUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BE42790529D127F0005247D8 /* AlloraUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlloraUITests.swift; sourceTree = "<group>"; };
-		BE42790729D127F0005247D8 /* AlloraUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlloraUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		BE42791829D12807005247D8 /* AlloraKeyboard.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AlloraKeyboard.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE42791A29D12807005247D8 /* KeyboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardViewController.swift; sourceTree = "<group>"; };
 		BE42791C29D12807005247D8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -79,20 +57,6 @@
 
 /* Begin PBXFrameworksBuildPhase section */
 		BE4278E429D127EF005247D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE4278F429D127F0005247D8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE4278FE29D127F0005247D8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -114,8 +78,6 @@
 			children = (
 				BEA37B6E29F09A2200CA9E00 /* README.md */,
 				BE4278E929D127EF005247D8 /* Allora */,
-				BE4278FA29D127F0005247D8 /* AlloraTests */,
-				BE42790429D127F0005247D8 /* AlloraUITests */,
 				BE42791929D12807005247D8 /* AlloraKeyboard */,
 				BE4278E829D127EF005247D8 /* Products */,
 			);
@@ -125,8 +87,6 @@
 			isa = PBXGroup;
 			children = (
 				BE4278E729D127EF005247D8 /* Allora.app */,
-				BE4278F729D127F0005247D8 /* AlloraTests.xctest */,
-				BE42790129D127F0005247D8 /* AlloraUITests.xctest */,
 				BE42791829D12807005247D8 /* AlloraKeyboard.appex */,
 			);
 			name = Products;
@@ -151,23 +111,6 @@
 				BE4278F129D127F0005247D8 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		BE4278FA29D127F0005247D8 /* AlloraTests */ = {
-			isa = PBXGroup;
-			children = (
-				BE4278FB29D127F0005247D8 /* AlloraTests.swift */,
-			);
-			path = AlloraTests;
-			sourceTree = "<group>";
-		};
-		BE42790429D127F0005247D8 /* AlloraUITests */ = {
-			isa = PBXGroup;
-			children = (
-				BE42790529D127F0005247D8 /* AlloraUITests.swift */,
-				BE42790729D127F0005247D8 /* AlloraUITestsLaunchTests.swift */,
-			);
-			path = AlloraUITests;
 			sourceTree = "<group>";
 		};
 		BE42791929D12807005247D8 /* AlloraKeyboard */ = {
@@ -202,42 +145,6 @@
 			productReference = BE4278E729D127EF005247D8 /* Allora.app */;
 			productType = "com.apple.product-type.application";
 		};
-		BE4278F629D127F0005247D8 /* AlloraTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BE42790E29D127F0005247D8 /* Build configuration list for PBXNativeTarget "AlloraTests" */;
-			buildPhases = (
-				BE4278F329D127F0005247D8 /* Sources */,
-				BE4278F429D127F0005247D8 /* Frameworks */,
-				BE4278F529D127F0005247D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BE4278F929D127F0005247D8 /* PBXTargetDependency */,
-			);
-			name = AlloraTests;
-			productName = AlloraTests;
-			productReference = BE4278F729D127F0005247D8 /* AlloraTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		BE42790029D127F0005247D8 /* AlloraUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = BE42791129D127F0005247D8 /* Build configuration list for PBXNativeTarget "AlloraUITests" */;
-			buildPhases = (
-				BE4278FD29D127F0005247D8 /* Sources */,
-				BE4278FE29D127F0005247D8 /* Frameworks */,
-				BE4278FF29D127F0005247D8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				BE42790329D127F0005247D8 /* PBXTargetDependency */,
-			);
-			name = AlloraUITests;
-			productName = AlloraUITests;
-			productReference = BE42790129D127F0005247D8 /* AlloraUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		BE42791729D12807005247D8 /* AlloraKeyboard */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE42792029D12807005247D8 /* Build configuration list for PBXNativeTarget "AlloraKeyboard" */;
@@ -268,14 +175,6 @@
 					BE4278E629D127EF005247D8 = {
 						CreatedOnToolsVersion = 14.2;
 					};
-					BE4278F629D127F0005247D8 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = BE4278E629D127EF005247D8;
-					};
-					BE42790029D127F0005247D8 = {
-						CreatedOnToolsVersion = 14.2;
-						TestTargetID = BE4278E629D127EF005247D8;
-					};
 					BE42791729D12807005247D8 = {
 						CreatedOnToolsVersion = 14.2;
 					};
@@ -295,8 +194,6 @@
 			projectRoot = "";
 			targets = (
 				BE4278E629D127EF005247D8 /* Allora */,
-				BE4278F629D127F0005247D8 /* AlloraTests */,
-				BE42790029D127F0005247D8 /* AlloraUITests */,
 				BE42791729D12807005247D8 /* AlloraKeyboard */,
 			);
 		};
@@ -309,20 +206,6 @@
 			files = (
 				BE4278F229D127F0005247D8 /* Preview Assets.xcassets in Resources */,
 				BE4278EF29D127F0005247D8 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE4278F529D127F0005247D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE4278FF29D127F0005247D8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,23 +229,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		BE4278F329D127F0005247D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE4278FC29D127F0005247D8 /* AlloraTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		BE4278FD29D127F0005247D8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				BE42790629D127F0005247D8 /* AlloraUITests.swift in Sources */,
-				BE42790829D127F0005247D8 /* AlloraUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		BE42791429D12807005247D8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -374,16 +240,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		BE4278F929D127F0005247D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE4278E629D127EF005247D8 /* Allora */;
-			targetProxy = BE4278F829D127F0005247D8 /* PBXContainerItemProxy */;
-		};
-		BE42790329D127F0005247D8 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = BE4278E629D127EF005247D8 /* Allora */;
-			targetProxy = BE42790229D127F0005247D8 /* PBXContainerItemProxy */;
-		};
 		BE42791E29D12807005247D8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BE42791729D12807005247D8 /* AlloraKeyboard */;
@@ -511,12 +367,12 @@
 		BE42790C29D127F0005247D8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Allora/Allora.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Allora/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -531,6 +387,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -538,6 +395,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.team.Allora;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -547,12 +405,12 @@
 		BE42790D29D127F0005247D8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = Allora/Allora.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Allora/Preview Content\"";
 				DEVELOPMENT_TEAM = "";
@@ -567,6 +425,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -574,89 +433,10 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.team.Allora;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		BE42790F29D127F0005247D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needs acccess to local network devices";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.team.AlloraTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Allora.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Allora";
-			};
-			name = Debug;
-		};
-		BE42791029D127F0005247D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needs acccess to local network devices";
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.team.AlloraTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Allora.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Allora";
-			};
-			name = Release;
-		};
-		BE42791229D127F0005247D8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local devices";
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.team.AlloraUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Allora;
-			};
-			name = Debug;
-		};
-		BE42791329D127F0005247D8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Local devices";
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.team.AlloraUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Allora;
 			};
 			name = Release;
 		};
@@ -664,7 +444,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AlloraKeyboard/AlloraKeyboard.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -680,6 +460,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.team.Allora.AlloraKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -691,7 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = AlloraKeyboard/AlloraKeyboard.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -707,6 +488,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.team.Allora.AlloraKeyboard;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -731,24 +513,6 @@
 			buildConfigurations = (
 				BE42790C29D127F0005247D8 /* Debug */,
 				BE42790D29D127F0005247D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BE42790E29D127F0005247D8 /* Build configuration list for PBXNativeTarget "AlloraTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BE42790F29D127F0005247D8 /* Debug */,
-				BE42791029D127F0005247D8 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		BE42791129D127F0005247D8 /* Build configuration list for PBXNativeTarget "AlloraUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				BE42791229D127F0005247D8 /* Debug */,
-				BE42791329D127F0005247D8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
