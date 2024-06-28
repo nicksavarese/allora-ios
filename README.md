@@ -5,7 +5,7 @@
 Conversational filler, in italian: *'Well, then..'*  
 
 ## 🎆 TEXT STREAMING UPDATE 🎆
-Allora KB has been overhauled to provide a better user experience with more a slider to set the requested tokens, loading indicators, text streaming, and more!
+Allora KB has been overhauled to provide a better user experience with a slider to set the requested tokens, loading indicators, text streaming, and more!
 
 ## 💡 Description 💡
 
