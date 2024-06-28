@@ -2,88 +2,94 @@ import UIKit
 
 class KeyboardViewController: UIInputViewController {
 
-    let customKeyboardView = UIInputView(frame: .zero, inputViewStyle: .keyboard)
+    var buttonStackView: UIStackView!
+    var tokenSlider: UISlider!
+    var tokenLabel: UILabel!
     var activityIndicator: UIActivityIndicatorView!
     var shouldReplaceEntireText = false
+    var isFirstChunk = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupCustomKeyboard()
-        setupActivityIndicator()
+        setupUI()
     }
 
-    func setupCustomKeyboard() {
-        customKeyboardView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(customKeyboardView)
+    func setupUI() {
+        view.backgroundColor = .systemBackground
+
+        // Token Slider
+        tokenSlider = UISlider()
+        tokenSlider.minimumValue = 1
+        tokenSlider.maximumValue = 500
+        tokenSlider.value = 100
+        tokenSlider.addTarget(self, action: #selector(tokenSliderChanged), for: .valueChanged)
         
-        NSLayoutConstraint.activate([
-            customKeyboardView.topAnchor.constraint(equalTo: view.topAnchor),
-            customKeyboardView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
-            customKeyboardView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            customKeyboardView.trailingAnchor.constraint(equalTo: view.trailingAnchor)
-        ])
+        // Token Label
+        tokenLabel = UILabel()
+        tokenLabel.text = "Tokens: 100"
+        tokenLabel.textAlignment = .center
         
-        setupButtons()
-    }
-
-    func setupActivityIndicator() {
-        activityIndicator = UIActivityIndicatorView(style: .medium)
-        activityIndicator.hidesWhenStopped = true
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(activityIndicator)
+        // Buttons
+        let buttonTitles = ["Prompt+Clipboard", "Prompt Only", "Extend Text"]
+        buttonStackView = UIStackView()
+        buttonStackView.axis = .horizontal
+        buttonStackView.distribution = .fillEqually
+        buttonStackView.spacing = 8
         
-        NSLayoutConstraint.activate([
-            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            activityIndicator.topAnchor.constraint(equalTo: customKeyboardView.bottomAnchor, constant: 8)
-        ])
-    }
-
-    func setupButtons() {
-        let stackView = UIStackView()
-        stackView.axis = .horizontal
-        stackView.distribution = .fillEqually
-        stackView.alignment = .fill
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-
-        customKeyboardView.addSubview(stackView)
-
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: customKeyboardView.topAnchor),
-            stackView.bottomAnchor.constraint(equalTo: customKeyboardView.bottomAnchor),
-            stackView.leadingAnchor.constraint(equalTo: customKeyboardView.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: customKeyboardView.trailingAnchor),
-        ])
-
-        let buttonTitles = ["Send Both", "Send Text", "Clipboard...", "Text..."]
-        let buttonSelectors: [Selector] = [#selector(executeButtonTapped), #selector(textOnlyButtonTapped), #selector(continueClipboardButtonTapped), #selector(continueTextButtonTapped)]
-
         for (index, title) in buttonTitles.enumerated() {
             let button = UIButton(type: .system)
             button.setTitle(title, for: .normal)
-            button.addTarget(self, action: buttonSelectors[index], for: .touchUpInside)
-            stackView.addArrangedSubview(button)
+            button.addTarget(self, action: [#selector(promptPlusClipboardTapped), #selector(promptOnlyTapped), #selector(extendTextTapped)][index], for: .touchUpInside)
+            buttonStackView.addArrangedSubview(button)
         }
+        
+        // Activity Indicator
+        activityIndicator = UIActivityIndicatorView(style: .medium)
+        activityIndicator.hidesWhenStopped = true
+
+        // Add subviews
+        [tokenSlider, tokenLabel, buttonStackView, activityIndicator].forEach {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview($0)
+        }
+
+        // Layout constraints
+        NSLayoutConstraint.activate([
+            tokenSlider.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8),
+            tokenSlider.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            tokenSlider.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+
+            tokenLabel.topAnchor.constraint(equalTo: tokenSlider.bottomAnchor, constant: 8),
+            tokenLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+
+            buttonStackView.topAnchor.constraint(equalTo: tokenLabel.bottomAnchor, constant: 16),
+            buttonStackView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            buttonStackView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            buttonStackView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8),
+
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
+        ])
     }
 
-    @objc func executeButtonTapped() {
+    @objc func tokenSliderChanged() {
+        let tokens = Int(tokenSlider.value)
+        tokenLabel.text = "Tokens: \(tokens)"
+    }
+
+    @objc func promptPlusClipboardTapped() {
         shouldReplaceEntireText = true
         let instruction = "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) : \"\(getHighlightedText())\" | \n### Response:"
         sendAPIRequest(instruction: instruction, highlightedText: getHighlightedText(), inputFieldText: getInputFieldText())
     }
     
-    @objc func textOnlyButtonTapped() {
+    @objc func promptOnlyTapped() {
         shouldReplaceEntireText = true
         let instruction = "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n \(getInputFieldText()) \n### Response:"
         sendAPIRequest(instruction: instruction, highlightedText: "", inputFieldText: getInputFieldText())
     }
     
-    @objc func continueClipboardButtonTapped() {
-        shouldReplaceEntireText = false
-        let instruction = "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getHighlightedText())\" | \n### Response:"
-        sendAPIRequest(instruction: instruction, highlightedText: getHighlightedText(), inputFieldText: "")
-    }
-    
-    @objc func continueTextButtonTapped() {
+    @objc func extendTextTapped() {
         shouldReplaceEntireText = false
         let instruction = "Below is an instruction that describes a task. Write a response that appropriately completes the request. \n### Instruction:\n Continue this text: \"\(getInputFieldText())\" | \n### Response:"
         sendAPIRequest(instruction: instruction, highlightedText: "", inputFieldText: getInputFieldText())
@@ -99,18 +105,18 @@ class KeyboardViewController: UIInputViewController {
     }
 
     func sendAPIRequest(instruction: String, highlightedText: String, inputFieldText: String) {
-        let apiURL = "https://OPENAI-COMPATIBLE-API-URL:PORT/v1/completions"
+        let apiURL = "https://OPENAI-COMPATIBLE-API-URL:PORT/v1/completions/v1/completions"
         print("Sending API Request to OpenAI format endpoint")
         
         let combinedPrompt = "\(instruction) \(highlightedText) \(inputFieldText)"
         
         let parameters: [String: Any] = [
             "prompt": combinedPrompt,
-            "max_tokens": 100,
+            "max_tokens": Int(tokenSlider.value),
             "temperature": 0.7,
             "top_p": 0.9,
             "n": 1,
-            "stream": false,
+            "stream": true,
             "stop": "#"
         ]
 
@@ -128,69 +134,82 @@ class KeyboardViewController: UIInputViewController {
             self.startLoading()
         }
 
-        let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
-            DispatchQueue.main.async {
-                self?.stopLoading()
-            }
-
-            if let error = error {
-                print("Error making API request: \(error.localizedDescription)")
-                return
-            }
-
-            guard let data = data else { return }
-            if let responseText = self?.parseAPIResponse(responseData: data) {
-                DispatchQueue.main.async {
-                    self?.updateTextInput(with: responseText)
-                }
-            }
-        }
-
+        let session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
+        let task = session.dataTask(with: request)
         task.resume()
     }
     
-    func parseAPIResponse(responseData: Data) -> String {
-        do {
-            if let json = try JSONSerialization.jsonObject(with: responseData, options: []) as? [String: Any],
-               let choices = json["choices"] as? [[String: Any]],
-               !choices.isEmpty,
-               let firstChoice = choices.first,
-               let text = firstChoice["text"] as? String {
-                return text.trimmingCharacters(in: .whitespacesAndNewlines)
+    func handleStreamingResponse(text: String) {
+        if isFirstChunk {
+            if shouldReplaceEntireText {
+                // Remove all existing text
+                while (textDocumentProxy as? UITextDocumentProxy)?.documentContextBeforeInput?.isEmpty == false {
+                    (textDocumentProxy as? UITextDocumentProxy)?.deleteBackward()
+                }
+                // Move cursor to the beginning
+                (textDocumentProxy as? UITextDocumentProxy)?.adjustTextPosition(byCharacterOffset: 0)
+            } else {
+                // Remove only "Loading..." text
+                for _ in 0..<10 {
+                    (textDocumentProxy as? UITextDocumentProxy)?.deleteBackward()
+                }
             }
-        } catch {
-            print("Error parsing API response: \(error.localizedDescription)")
+            isFirstChunk = false
         }
         
-        return ""
+        // Update text input without removing newlines
+        updateTextInput(with: text)
     }
 
     func updateTextInput(with text: String) {
         guard let textDocumentProxy = self.textDocumentProxy as? UITextDocumentProxy else { return }
-        
-        if shouldReplaceEntireText {
-            // Delete all existing text
-            while textDocumentProxy.documentContextBeforeInput?.isEmpty == false {
-                textDocumentProxy.deleteBackward()
-            }
-            // Insert new text without quotes
-            textDocumentProxy.insertText(text)
-        } else {
-            // For continue operations, just append the text
-            textDocumentProxy.insertText(text)
-        }
+        textDocumentProxy.insertText(text)
     }
 
     func startLoading() {
         activityIndicator.startAnimating()
-        updateTextInput(with: "Loading...")
+        isFirstChunk = true
+        updateTextInput(with: " Processing ...")
     }
 
     func stopLoading() {
         activityIndicator.stopAnimating()
-        // Remove "Loading..." text
-        for _ in 0..<10 {
-            (textDocumentProxy as? UITextDocumentProxy)?.deleteBackward()
+    }
+}
+
+extension KeyboardViewController: URLSessionDataDelegate {
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        let decoder = JSONDecoder()
+        let lines = data.split(separator: UInt8(ascii: "\n"))
+        
+        for line in lines {
+            if line.starts(with: Data("data: ".utf8)) {
+                let jsonData = line.dropFirst(6)
+                if let event = try? decoder.decode(StreamCompletionResponse.self, from: jsonData) {
+                    if let text = event.choices.first?.text {
+                        DispatchQueue.main.async { [weak self] in
+                            self?.handleStreamingResponse(text: text)
+                        }
+                    }
+                }
+            }
         }
+    }
+    
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+        DispatchQueue.main.async { [weak self] in
+            self?.stopLoading()
+        }
+        if let error = error {
+            print("Error: \(error.localizedDescription)")
+        }
+    }
+}
+
+struct StreamCompletionResponse: Decodable {
+    let choices: [Choice]
+    
+    struct Choice: Decodable {
+        let text: String
     }
 }
