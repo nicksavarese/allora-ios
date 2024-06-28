@@ -4,8 +4,8 @@
 
 Conversational filler, in italian: *'Well, then..'*  
 
-## 🏗️ Overhaul incoming
-Allora KB will soon be overhauled to provide a better user experience with more customization options, text streaming, and more!
+## 🎆 TEXT STREAMING UPDATE 🎆
+Allora KB has been overhauled to provide a better user experience with more a slider to set the requested tokens, loading indicators, text streaming, and more!
 
 ## 💡 Description 💡
 
@@ -20,10 +20,10 @@ This was originally built to serve the purpose of providing summarizations, quic
 ## ⭐ Features ⭐
 
 * Custom keyboard layout with four buttons:
-    1. Send Both
-    2. Send Text
-    3. Clipboard...
-    4. Text...
+    1. Prompt+Clip _(Previously "Send Both")_
+    2. Prompt Only _(Previously "Send Text")_
+    3. Extend Text _(Previously "Text..")_
+    4. ~~Clipboard... (deprecated)~~
 * Extracts the input field text and clipboard content.
 * Sends extracted text to a REST API for processing.
 * Displays the API response in the input field.
@@ -56,7 +56,7 @@ _Before building, be sure to add your Apple Developer details so you can sign th
 4. The API response will be displayed in the input field, and replaces input field text.
 
 ## 📚 Examples 📚
-### Send Both:
+### Prompt+Clip:
 
 #### Sends the input field text along with the highlighted (clipboard) text.
 
@@ -70,7 +70,7 @@ and the clipboard text is:
     
 the API will receive both phrases and respond accordingly.
     
-### Send Text: 
+### Prompt Only: 
 
 #### Sends the input field text only. 
 
@@ -80,17 +80,7 @@ For example, if the input field text is
     
 the API will receive this phrase alone.
 
-### Clipboard...:
-
-#### Sends the highlighted (clipboard) text, asking the API to continue it. 
-
-For example, if the clipboard text is 
-
-    Let me not to the marriage of true minds…
-    
-the API will receive this phrase with a request to continue it.
-
-### Text...: 
+### Extend Text: 
 
 #### Sends the input field text, asking the API to continue it. 
 
@@ -100,6 +90,16 @@ For example, if the input field text is
 
 The API will receive this phrase with a request to continue it.
 
+
+### ~~Clipboard~~...: (deprecated)
+
+#### ~~Sends the highlighted (clipboard) text, asking the API to continue it.~~ 
+
+~~For example, if the clipboard text is~~
+
+    Let me not to the marriage of true minds…
+    
+~~the API will receive this phrase with a request to continue it.~~
 
 ## 🖌 Customization
 
