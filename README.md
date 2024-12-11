@@ -42,7 +42,7 @@ This was originally built to serve the purpose of providing summarizations, quic
 3. Change the API URL in the `sendAPIRequest` function to match your API endpoint.
 4. Update the Development Team and Bundle Identifier for each target to match your Apple Developer account details:
 
-_You will need to replace "TEXT_GENERATION_HOST_NAME" and “PORT_NUMBER” with your API URL and PORT details to the KeyboardViewController.swift file on line 87._
+_You will need to replace "TEXT_GENERATION_HOST_NAME" and “PORT_NUMBER” with your API URL and PORT details to the KeyboardViewController.swift file on line 108._
 
 The app requires an HTTPS / secure API URL to properly send and receive data. If you need to run with a local IP (192.168.1.xxx, etc.) you will need to update your App Transport Security settings to allow local network connections and arbitrary loads. You should review any change in application or device security protocols thoroughly before making changes.
 
